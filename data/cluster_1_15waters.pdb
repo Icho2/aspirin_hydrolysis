@@ -1,0 +1,104 @@
+HEADER 
+TITLE     Built with Packmol                                             
+REMARK   Packmol generated pdb file 
+REMARK   Home-Page: http://m3g.iqm.unicamp.br/packmol
+REMARK
+HETATM    1  C   UNL     1      -1.446  -1.966  -1.509  1.00  0.00           C  
+HETATM    2  C   UNL     1      -2.426  -1.754  -0.542  1.00  0.00           C  
+HETATM    3  C   UNL     1      -0.312  -1.156  -1.538  1.00  0.00           C  
+HETATM    4  C   UNL     1      -2.278  -0.726   0.393  1.00  0.00           C  
+HETATM    5  O   UNL     1       1.000   0.637  -0.701  1.00  0.00           O  
+HETATM    6  C   UNL     1      -1.096   1.183   1.394  1.00  0.00           C  
+HETATM    7  C   UNL     1      -1.144   0.103   0.377  1.00  0.00           C  
+HETATM    8  C   UNL     1      -0.156  -0.139  -0.588  1.00  0.00           C  
+HETATM    9  O   UNL     1      -1.903   1.331   2.297  1.00  0.00           O  
+HETATM   10  O   UNL     1      -0.088   2.058   1.243  1.00  0.00           O  
+HETATM   11  C   UNL     1       2.001   0.235   0.174  1.00  0.00           C  
+HETATM   12  O   UNL     1       1.964  -0.714   0.948  1.00  0.00           O  
+HETATM   13  C   UNL     1       3.178   1.151   0.017  1.00  0.00           C  
+HETATM   14  H   UNL     1      -1.563  -2.764  -2.239  1.00  0.00           H  
+HETATM   15  H   UNL     1      -3.310  -2.388  -0.515  1.00  0.00           H  
+HETATM   16  H   UNL     1       0.453  -1.323  -2.291  1.00  0.00           H  
+HETATM   17  H   UNL     1      -3.058  -0.572   1.137  1.00  0.00           H  
+HETATM   18  H   UNL     1      -0.229   2.690   1.980  1.00  0.00           H  
+HETATM   19  H   UNL     1       3.959   0.861   0.725  1.00  0.00           H  
+HETATM   20  H   UNL     1       2.878   2.180   0.234  1.00  0.00           H  
+HETATM   21  H   UNL     1       3.576   1.071  -0.997  1.00  0.00           H  
+ATOM     22    O MOL A   1      -4.843   4.884  -2.718  1.00  0.00           O  
+ATOM     23    H MOL A   1      -4.807   4.334  -1.921  1.00  0.00           H  
+ATOM     24    H MOL A   1      -5.362   4.355  -3.342  1.00  0.00           H  
+ATOM     25    O MOL A   2       0.708  -5.829   7.880  1.00  0.00           O  
+ATOM     26    H MOL A   2      -0.069  -6.057   7.347  1.00  0.00           H  
+ATOM     27    H MOL A   2       1.190  -5.194   7.330  1.00  0.00           H  
+ATOM     28    O MOL A   3       5.520  -5.080  -4.432  1.00  0.00           O  
+ATOM     29    H MOL A   3       5.989  -5.223  -5.267  1.00  0.00           H  
+ATOM     30    H MOL A   3       5.971  -4.318  -4.039  1.00  0.00           H  
+ATOM     31    O MOL A   4       3.755  -3.366   8.203  1.00  0.00           O  
+ATOM     32    H MOL A   4       3.042  -3.695   7.636  1.00  0.00           H  
+ATOM     33    H MOL A   4       4.333  -2.882   7.594  1.00  0.00           H  
+ATOM     34    O MOL A   5      -2.643   2.247  -5.235  1.00  0.00           O  
+ATOM     35    H MOL A   5      -3.081   2.544  -6.046  1.00  0.00           H  
+ATOM     36    H MOL A   5      -2.384   1.334  -5.431  1.00  0.00           H  
+ATOM     37    O MOL A   6       0.217   6.021   6.120  1.00  0.00           O  
+ATOM     38    H MOL A   6       0.910   5.656   5.549  1.00  0.00           H  
+ATOM     39    H MOL A   6      -0.477   6.289   5.500  1.00  0.00           H  
+ATOM     40    O MOL A   7      -1.941   5.941  -7.215  1.00  0.00           O  
+ATOM     41    H MOL A   7      -2.337   5.530  -7.998  1.00  0.00           H  
+ATOM     42    H MOL A   7      -1.699   5.189  -6.655  1.00  0.00           H  
+ATOM     43    O MOL A   8      -1.495  -3.925   8.281  1.00  0.00           O  
+ATOM     44    H MOL A   8      -1.972  -3.145   7.959  1.00  0.00           H  
+ATOM     45    H MOL A   8      -0.566  -3.651   8.270  1.00  0.00           H  
+ATOM     46    O MOL A   9       3.666   1.876   6.370  1.00  0.00           O  
+ATOM     47    H MOL A   9       4.369   2.035   5.723  1.00  0.00           H  
+ATOM     48    H MOL A   9       4.139   1.579   7.161  1.00  0.00           H  
+ATOM     49    O MOL A  10       3.575   4.043  -5.730  1.00  0.00           O  
+ATOM     50    H MOL A  10       3.452   4.871  -6.218  1.00  0.00           H  
+ATOM     51    H MOL A  10       4.016   3.461  -6.367  1.00  0.00           H  
+ATOM     52    O MOL A  11       2.010  -7.729   2.676  1.00  0.00           O  
+ATOM     53    H MOL A  11       2.875  -7.857   2.260  1.00  0.00           H  
+ATOM     54    H MOL A  11       1.413  -7.572   1.929  1.00  0.00           H  
+ATOM     55    O MOL A  12       2.072   1.148   8.245  1.00  0.00           O  
+ATOM     56    H MOL A  12       2.343   0.219   8.200  1.00  0.00           H  
+ATOM     57    H MOL A  12       1.713   1.244   9.139  1.00  0.00           H  
+ATOM     58    O MOL A  13      -8.645  -2.243  -1.502  1.00  0.00           O  
+ATOM     59    H MOL A  13      -7.697  -2.418  -1.408  1.00  0.00           H  
+ATOM     60    H MOL A  13      -8.732  -1.911  -2.408  1.00  0.00           H  
+ATOM     61    O MOL A  14       6.645   1.528   5.584  1.00  0.00           O  
+ATOM     62    H MOL A  14       7.302   2.153   5.241  1.00  0.00           H  
+ATOM     63    H MOL A  14       7.103   1.086   6.314  1.00  0.00           H  
+ATOM     64    O MOL A  15      -6.764   2.741   0.914  1.00  0.00           O  
+ATOM     65    H MOL A  15      -6.297   3.144   0.167  1.00  0.00           H  
+ATOM     66    H MOL A  15      -7.365   2.106   0.497  1.00  0.00           H  
+CONECT    1    2
+CONECT    1    2    3   14
+CONECT    2    1
+CONECT    2    1    4   15
+CONECT    3    1    8
+CONECT    3    8   16
+CONECT    4    2    7
+CONECT    4    7   17
+CONECT    5    8   11
+CONECT    6    7    9
+CONECT    6    9   10
+CONECT    7    6
+CONECT    7    4
+CONECT    7    4    8
+CONECT    8    3
+CONECT    8    3    5    7
+CONECT    9    6
+CONECT    9    6
+CONECT   10    6   18
+CONECT   11    5   12
+CONECT   11   12   13
+CONECT   12   11
+CONECT   12   11
+CONECT   13   11   19   20   21
+CONECT   14    1
+CONECT   15    2
+CONECT   16    3
+CONECT   17    4
+CONECT   18   10
+CONECT   19   13
+CONECT   20   13
+CONECT   21   13
+END

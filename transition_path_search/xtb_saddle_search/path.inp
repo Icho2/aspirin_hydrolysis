@@ -1,0 +1,10 @@
+$path
+  nrun = 1
+  npoint = 40
+  anopt = 15
+  kpush = 0.008
+  kpull = -0.030
+  ppull = 0.05
+  alp = 0.7
+$end
+

@@ -1,0 +1,14 @@
+tolerance 2.0
+filetype pdb
+output data/cluster_1_15waters.xyz
+
+structure data/conformer_1.pdb
+  number 1
+  center
+  fixed 0. 0. 0. 0. 0. 0.
+end structure
+
+structure data/water.pdb
+  number 15
+  inside sphere 0. 0. 0. 10.0
+end structure
