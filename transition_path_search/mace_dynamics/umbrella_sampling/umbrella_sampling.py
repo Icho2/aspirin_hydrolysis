@@ -11,7 +11,7 @@ from mace.calculators import mace_off
 from ase.constraints import FixAtoms, Hookean
 
 
-calculator = mace_off(model='medium', device='cpu')
+calculator = mace_off(model='medium', device='cuda')
 init_conf = read('cluster_0_15waters_opted.xyz')
 
 
@@ -30,15 +30,10 @@ constraints += [
     Hookean(a1=o_idx, a2=aspirin_com, rt=6.5, k=2.0)
     for o_idx in water_o_indices
 ]
+
 init_conf.set_constraint(constraints)
 
-
-
-
 MaxwellBoltzmannDistribution(init_conf, temperature_K=300)
-
-
-
 
 timestep = 0.5
 
@@ -46,7 +41,6 @@ target_cv = -0.5
 kappa = 200
 
 plumed_setup = [
-
     "UNITS LENGTH=A TIME=ps ENERGY=kj/mol",
     f"d_break: DISTANCE ATOMS=5,8",
     f"d_form: DISTANCE ATOMS=5,52",
@@ -70,7 +64,6 @@ init_conf.calc = Plumed(
     log="plumed.log"
 )
 
-
 dyn = Langevin(
     init_conf,
     timestep=0.5 * units.fs,
@@ -82,7 +75,7 @@ dyn = Langevin(
 
 dyn.attach(
     MDLogger(dyn, init_conf, "-", header=True, stress=False, peratom=False),
-    interval=10,
+    interval=1000,
 )
 
-dyn.run(10)
+dyn.run(1000000)
