@@ -5,6 +5,7 @@ from ase.calculators.plumed import Plumed
 from ase.md.velocitydistribution import MaxwellBoltzmannDistribution
 from ase.constraints import FixAtoms, Hookean
 from mace.calculators import mace_off
+from ase.md import MDLogger
 import numpy as np
 import os
 
@@ -13,13 +14,13 @@ calculator = mace_off(model='medium', device='cuda')
 
 # 2. Load NEB images/path (replace 'neb_path.traj' with your actual NEB file, 
 #    or pass a list of image filenames like ['image_00.xyz', 'image_01.xyz', ...])
-neb_images = read('neb_path.traj', index=':')  # Reads all images along the path
+neb_images = read('NEB_aspirin_hydrolysis.traj', index=':')  # Reads all images along the path
 
 print(f"Loaded {len(neb_images)} NEB windows to run.")
 
 # Common setup constants
 kappa = 200.0
-total_steps = 200000  # Adjust steps per window as needed (e.g., 200k steps = 100 ps at 0.5 fs)
+total_steps = 20000  # Adjust steps per window as needed (e.g., 20k steps = 10 ps at 0.5 fs)
 timestep = 0.5        # fs
 
 for i, img in enumerate(neb_images):
@@ -28,10 +29,10 @@ for i, img in enumerate(neb_images):
     # Calculate the CV value directly from this specific NEB image geometry
     # d_break: distance between atoms 5 and 8
     pos = img.get_positions()
-    d_break_val = np.linalg.norm(pos[5] - pos[8])
+    d_break_val = np.linalg.norm(pos[4] - pos[6])
     
     # d_form: distance between atoms 5 and 52
-    d_form_val = np.linalg.norm(pos[5] - pos[52])
+    d_form_val = np.linalg.norm(pos[4] - pos[21])
     
     # Target CV defined as d_break - d_form (matching your PLUMED setup)
     target_cv = d_break_val - d_form_val
@@ -61,8 +62,8 @@ for i, img in enumerate(neb_images):
     # PLUMED configuration for this specific window
     plumed_setup = [
         "UNITS LENGTH=A TIME=ps ENERGY=kj/mol",
-        f"d_break: DISTANCE ATOMS=5,8",
-        f"d_form: DISTANCE ATOMS=5,52",
+        f"d_break: DISTANCE ATOMS=5,7",
+        f"d_form: DISTANCE ATOMS=5,22",
         "cv: COMBINE ARG=d_break,d_form COEFFICIENTS=1.0,-1.0 PERIODIC=NO",
         f"restraint: RESTRAINT ARG=cv AT={target_cv:.4f} KAPPA={kappa}",
         "com_asp: COM ATOMS=1-21",
@@ -88,8 +89,11 @@ for i, img in enumerate(neb_images):
         temperature_K=300,
         friction=0.01 / units.fs,
         trajectory=traj_filename,
-        loginterval=1000,
+        loginterval=1,
     )
+
+    logger = MDLogger(dyn, img, 'md.log', header=True, stress=False, peratom=False)
+    dyn.attach(logger, interval=10)
 
     # Run the umbrella sampling simulation for this window
     try:
@@ -98,3 +102,5 @@ for i, img in enumerate(neb_images):
     except Exception as e:
         print(f"Error encountered in window {i+1}: {e}")
         continue
+    if i == 0:
+        break
