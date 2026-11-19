@@ -14,14 +14,18 @@ calculator = mace_off(model='medium', device='cuda')
 
 # 2. Load NEB images/path (replace 'neb_path.traj' with your actual NEB file, 
 #    or pass a list of image filenames like ['image_00.xyz', 'image_01.xyz', ...])
+#neb_images = read('NEB_aspirin_hydrolysis.traj', index=':')  # Reads all images along the path
 neb_images = read('NEB_aspirin_hydrolysis.traj', index=':')  # Reads all images along the path
 
 print(f"Loaded {len(neb_images)} NEB windows to run.")
 
 # Common setup constants
 kappa = 200.0
-total_steps = 20000  # Adjust steps per window as needed (e.g., 20k steps = 10 ps at 0.5 fs)
+total_steps = 10000  # Adjust steps per window as needed (e.g., 10k steps = 5 ps at 0.5 fs)
 timestep = 0.5        # fs
+
+os.makedirs("traj_files", exist_ok=True)
+os.makedirs("colvar", exist_ok=True)
 
 for i, img in enumerate(neb_images):
     print(f"\n--- Starting Umbrella Window {i+1} of {len(neb_images)} ---")
@@ -56,8 +60,10 @@ for i, img in enumerate(neb_images):
     MaxwellBoltzmannDistribution(img, temperature_K=300)
 
     # Unique filenames for this window based on its target CV
-    colvar_filename = f"COLVAR_window_{i:02d}_cv_{target_cv:.2f}.dat"
-    traj_filename = f"traj_window_{i:02d}_cv_{target_cv:.2f}.traj"
+    colvar_filename = f"colvar/COLVAR_window_{i:02d}_cv_{target_cv:.2f}.dat"
+    traj_filename = f"traj_files/traj_window_{i:02d}_cv_{target_cv:.2f}.traj"
+    #colvar_filename = f"COLVAR_window_36_cv_{target_cv:.2f}.dat"
+    #traj_filename = f"traj_window_36_cv_{target_cv:.2f}.traj"
 
     # PLUMED configuration for this specific window
     plumed_setup = [
@@ -89,7 +95,7 @@ for i, img in enumerate(neb_images):
         temperature_K=300,
         friction=0.01 / units.fs,
         trajectory=traj_filename,
-        loginterval=1,
+        loginterval=10,
     )
 
     logger = MDLogger(dyn, img, 'md.log', header=True, stress=False, peratom=False)
@@ -102,5 +108,3 @@ for i, img in enumerate(neb_images):
     except Exception as e:
         print(f"Error encountered in window {i+1}: {e}")
         continue
-    if i == 0:
-        break
