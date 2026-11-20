@@ -1,3 +1,5 @@
+ #!/Users/mauricioagurcia/my_venv/bin python3
+
 import os
 from rdkit import Chem
 from rdkit.Chem import AllChem

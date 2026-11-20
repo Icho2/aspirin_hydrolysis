@@ -1,0 +1,14 @@
+tolerance 2.0
+filetype xyz
+output NEB_new_36_15_waters.xyz
+
+structure NEB_new_36.xyz
+  number 1
+  center
+  fixed 0. 0. 0. 0. 0. 0.
+end structure
+
+structure water.xyz
+  number 15
+  inside sphere 0. 0. 0. 6.0
+end structure

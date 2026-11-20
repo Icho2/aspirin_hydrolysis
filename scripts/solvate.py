@@ -1,3 +1,4 @@
+#!/Users/mauricioagurcia/my_venv/bin python3
 import pypackmol
 
 # Define your Packmol input instructions as a string
